@@ -5,7 +5,7 @@ Console.WriteLine("-----------------------------\n");
 
 
 //------------------------------------------------------------------------------------------------
-//Call different kinds of methods
+// Call different kinds of methods
 //------------------------------------------------------------------------------------------------
 Random dice = new Random();
 int roll = dice.Next(1, 7);
@@ -26,7 +26,7 @@ Console.WriteLine("-----------------------------\n");
 
 
 //------------------------------------------------------------------------------------------------
-//Code challenge: Implement a method of the Math class that returns the larger of two numbers
+// Code challenge: Implement a method of the Math class that returns the larger of two numbers
 //------------------------------------------------------------------------------------------------
 int firstValue = 500;
 int secondValue = 600;
@@ -38,7 +38,7 @@ Console.WriteLine("-----------------------------\n");
 
 
 //------------------------------------------------------------------------------------------------
-//Random game
+// Random game
 //------------------------------------------------------------------------------------------------
 Random gameDice = new Random();
 
@@ -79,7 +79,7 @@ Console.WriteLine("-----------------------------\n");
 
 
 //------------------------------------------------------------------------------------------------
-//Subscriber If Else
+// Subscriber If Else
 //------------------------------------------------------------------------------------------------
 Random randomDaysUntilExpiration = new Random();
 int daysUntilExpiration = randomDaysUntilExpiration.Next(12);
@@ -111,7 +111,7 @@ Console.WriteLine("-----------------------------\n");
 
 
 //------------------------------------------------------------------------------------------------
-//Array basics
+// Array basics
 //------------------------------------------------------------------------------------------------
 var fraudulentOrderIDs = new [] { "A123", "B456", "C789" };
 
@@ -128,7 +128,7 @@ Console.WriteLine("-----------------------------\n");
 
 
 //------------------------------------------------------------------------------------------------
-//Exercise - Implement the foreach statement
+// Exercise - Implement the foreach statement
 //------------------------------------------------------------------------------------------------
 int[] inventory = { 200, 450, 700, 175, 250 };
 int sum = 0, bin = 0;
@@ -145,7 +145,7 @@ Console.WriteLine("-----------------------------\n");
 
 
 //------------------------------------------------------------------------------------------------
-//Code challenge - Report the Order IDs that need further investigation
+// Code challenge - Report the Order IDs that need further investigation
 //------------------------------------------------------------------------------------------------
 string[] orderIDs = ["B123", "C234", "A345", "C15", "B177", "G3003", "C235", "B179"];
 
@@ -154,3 +154,34 @@ foreach (var orderID in orderIDs)
     if (orderID.StartsWith("B"))
         Console.WriteLine(orderID);
 }
+
+Console.WriteLine("-----------------------------\n");
+
+
+//------------------------------------------------------------------------------------------------
+// Code challenge - apply style guidelines to improve readability
+//------------------------------------------------------------------------------------------------
+
+/*
+    Reverse a string and count the number of times a particular character appears, then print to console.
+*/
+
+int letterCount = 0;
+string originalMessage = "The quick brown fox jumps over the lazy dog.";
+
+char[] message = originalMessage.ToCharArray();
+Array.Reverse(message);
+
+foreach (char letter in message)
+{ 
+    if (letter == 'o') 
+    { 
+        letterCount++; 
+    }
+}
+
+string newMessage = new String(message);
+
+Console.WriteLine(newMessage);
+Console.WriteLine($"'o' appears {letterCount} times.");
+Console.WriteLine("-----------------------------\n");
