@@ -38,7 +38,7 @@ Console.WriteLine("-----------------------------\n");
 
 
 //------------------------------------------------------------------------------------------------
-//Code challenge: Implement a method of the Math class that returns the larger of two numbers
+//Random game
 //------------------------------------------------------------------------------------------------
 Random gameDice = new Random();
 
@@ -79,7 +79,7 @@ Console.WriteLine("-----------------------------\n");
 
 
 //------------------------------------------------------------------------------------------------
-//Code challenge: Implement a method of the Math class that returns the larger of two numbers
+//Subscriber If Else
 //------------------------------------------------------------------------------------------------
 Random randomDaysUntilExpiration = new Random();
 int daysUntilExpiration = randomDaysUntilExpiration.Next(12);
@@ -108,3 +108,49 @@ if (discountPercentage > 0)
     Console.WriteLine($"Renew now and save {discountPercentage}%.");
 
 Console.WriteLine("-----------------------------\n");
+
+
+//------------------------------------------------------------------------------------------------
+//Array basics
+//------------------------------------------------------------------------------------------------
+var fraudulentOrderIDs = new [] { "A123", "B456", "C789" };
+
+Console.WriteLine($"First: {fraudulentOrderIDs[0]}");
+Console.WriteLine($"Second: {fraudulentOrderIDs[1]}");
+Console.WriteLine($"Third: {fraudulentOrderIDs[2]}");
+
+fraudulentOrderIDs[0] = "F000";
+
+Console.WriteLine($"Reassign First: {fraudulentOrderIDs[0]}");
+
+Console.WriteLine($"There are {fraudulentOrderIDs.Length} fraudulent orders to process.");
+Console.WriteLine("-----------------------------\n");
+
+
+//------------------------------------------------------------------------------------------------
+//Exercise - Implement the foreach statement
+//------------------------------------------------------------------------------------------------
+int[] inventory = { 200, 450, 700, 175, 250 };
+int sum = 0, bin = 0;
+
+foreach (int items in inventory)
+{
+    bin++;
+    sum += items;
+    Console.WriteLine($"Bin {bin} = {items} items (Running total: {sum})");
+}
+
+Console.WriteLine($"We have {sum} items in inventory.");
+Console.WriteLine("-----------------------------\n");
+
+
+//------------------------------------------------------------------------------------------------
+//Code challenge - Report the Order IDs that need further investigation
+//------------------------------------------------------------------------------------------------
+string[] orderIDs = ["B123", "C234", "A345", "C15", "B177", "G3003", "C235", "B179"];
+
+foreach (var orderID in orderIDs)
+{
+    if (orderID.StartsWith("B"))
+        Console.WriteLine(orderID);
+}
