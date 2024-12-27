@@ -6,11 +6,10 @@ Console.WriteLine(coin.Next(0, 2) == 0 ? "heads" : "tails");
 Console.WriteLine("-----------------------------\n");
 
 
+
 //------------------------------------------------------------------------------------------------
 // Exercise - Complete a challenge activity using Boolean expressions
 //------------------------------------------------------------------------------------------------
-// var userRole = string.Empty;
-// var userLevel = 0;
 string permission = "Admin|Manager";
 int level = 60;
 
@@ -29,4 +28,27 @@ else if (permission.ToLower().Contains("manager") && level < 20)
 else
     Console.WriteLine("You do not have sufficient privileges.");
 
+Console.WriteLine("-----------------------------\n");
+
+
+
+//------------------------------------------------------------------------------------------------
+// Code challenge: update problematic code in the code editor
+//------------------------------------------------------------------------------------------------
+int[] numbers = [4, 8, 15, 16, 23, 42];
+bool found = false;
+int total = 0;
+
+foreach (int number in numbers)
+{
+    total += number;
+
+    if (number == 42)
+       found = true;
+}
+
+if (found) 
+    Console.WriteLine("Set contains 42");
+
+Console.WriteLine($"Total: {total}");
 Console.WriteLine("-----------------------------\n");
