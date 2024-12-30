@@ -34,18 +34,18 @@ CultureInfo.CurrentCulture = new CultureInfo("en-US");
 
 string[] values = ["12.3", "45", "ABC", "11", "DEF"];
 string message = string.Empty;
-double total = 0;
+double totalA = 0;
 
 foreach (var item in values)
 {
     if(double.TryParse(item, out double parsedItem))
-        total += parsedItem;
+        totalA += parsedItem;
     else
         message += item;
 }
 
 Console.WriteLine("Message: {0}", message);
-Console.WriteLine("Total: {0}", total);
+Console.WriteLine("Total: {0}", totalA);
 
 
 
@@ -99,4 +99,55 @@ Array.Sort(orders);
 foreach (var order in orders)
     Console.WriteLine(order.Length == 4 ? $"{order}": $"{order} \t- Error");
 
+Console.WriteLine("-----------------------------\n");
+
+
+
+//------------------------------------------------------------------------------------------------
+// Exercise - Explore string interpolation
+//------------------------------------------------------------------------------------------------
+int invoiceNumber = 1201;
+decimal productShares = 25.4568m;
+decimal subtotal = 2750.00m;
+decimal taxPercentage = .15825m;
+decimal total = 3185.19m;
+
+Console.WriteLine($"Invoice Number: {invoiceNumber}");
+Console.WriteLine($"   Shares: {productShares:N3} Product");
+Console.WriteLine($"     Sub Total: {subtotal:C}");
+Console.WriteLine($"           Tax: {taxPercentage:P2}");
+Console.WriteLine($"     Total Billed: {total:C}");
+Console.WriteLine("-----------------------------\n");
+
+
+
+//------------------------------------------------------------------------------------------------
+// Exercise - Complete a challenge to apply string interpolation to a form letter
+//------------------------------------------------------------------------------------------------
+string customerName = "Ms. Barros";
+
+string currentProduct = "Magic Yield";
+int currentShares = 2975000;
+decimal currentReturn = 0.1275m;
+decimal currentProfit = 55000000.0m;
+
+string newProduct = "Glorious Future";
+decimal newReturn = 0.13125m;
+decimal newProfit = 63000000.0m;
+
+string currentReturnFormatted = $"{currentReturn:P2}";
+string currentProfitFormatted = $"{currentProfit:C2}";
+
+string newReturnFormatted = $"{newReturn:P2}";
+string newProfitFormatted = $"{newProfit:C2}";
+
+Console.WriteLine($"");
+Console.WriteLine($"Dear {customerName},");
+Console.WriteLine($"As a customer of our {currentProduct} offering we are excited to tell you about a new financial product that would dramatically increase your return.");
+Console.WriteLine($"Currently, you own {currentShares} shares at a return of {currentReturn:P2}.");
+Console.WriteLine($"Our new product, {newProduct} offers a return of {newReturn:P2}.  Given your current volume, your potential profit would be {newProfit:C2}.");
+
+Console.WriteLine("Here's a quick comparison:\n");
+Console.WriteLine($"{currentProduct.PadRight(20)} {currentReturnFormatted} {currentProfitFormatted.PadLeft(17)}");
+Console.WriteLine($"{newProduct.PadRight(20)} {newReturnFormatted} {newProfitFormatted.PadLeft(17)}");
 Console.WriteLine("-----------------------------\n");
