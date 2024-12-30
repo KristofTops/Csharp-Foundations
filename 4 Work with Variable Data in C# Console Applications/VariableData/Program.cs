@@ -151,3 +151,29 @@ Console.WriteLine("Here's a quick comparison:\n");
 Console.WriteLine($"{currentProduct.PadRight(20)} {currentReturnFormatted} {currentProfitFormatted.PadLeft(17)}");
 Console.WriteLine($"{newProduct.PadRight(20)} {newReturnFormatted} {newProfitFormatted.PadLeft(17)}");
 Console.WriteLine("-----------------------------\n");
+
+
+
+//------------------------------------------------------------------------------------------------
+// Exercise - Complete a challenge to extract, replace, and remove data from an input string
+//------------------------------------------------------------------------------------------------
+const string input = "<div><h2>Widgets &trade;</h2><span>5000</span></div>";
+
+string quantity = "";
+string output = "";
+
+string spanOpen = "<span>", spanClose = "</span>";
+string divOpen = "<div>", divClose = "</div";
+int quantityStartPosition = input.IndexOf(spanOpen) + spanOpen.Length;
+int quantityEndPosition = input.IndexOf(spanClose);
+
+int outputStartPosition = input.IndexOf(divOpen) + divOpen.Length;
+int outputEndPosition = input.IndexOf(divClose);
+
+quantity = input.Substring(quantityStartPosition, quantityEndPosition - quantityStartPosition);
+output = input.Substring(outputStartPosition, outputEndPosition - outputStartPosition)
+              .Replace("&trade;", "&reg");
+
+Console.WriteLine($"quantity: {quantity}");
+Console.WriteLine($"output: {output}");
+Console.WriteLine("-----------------------------\n");
