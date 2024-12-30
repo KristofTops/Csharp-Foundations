@@ -1,7 +1,8 @@
-﻿//------------------------------------------------------------------------------------------------
+﻿using System.Globalization;
+
+//------------------------------------------------------------------------------------------------
 // Choose the correct data types
 //------------------------------------------------------------------------------------------------
-using System.Globalization;
 
 Console.WriteLine("Signed integral types:");
 
@@ -65,4 +66,37 @@ var result3 = value3 / value1;
 Console.WriteLine($"Divide value3 by value1, display the result as a float: {result3}");
 
 CultureInfo.CurrentCulture = originalCulture;
+Console.WriteLine("-----------------------------\n");
+
+
+
+//------------------------------------------------------------------------------------------------
+// Exercise - Complete a challenge to reverse words in a sentence
+//------------------------------------------------------------------------------------------------
+string pangram = "The quick brown fox jumps over the lazy dog";
+string[] splitPangram = pangram.Split(' ');
+string[] splitPangramReversed = new string[splitPangram.Length];
+var reversedPangram = string.Empty;
+
+for (int i = 0; i < splitPangram.Length; i++)
+{
+    splitPangramReversed[i] = string.Join("", splitPangram[i].Reverse());
+}
+
+reversedPangram = string.Join(' ', splitPangramReversed);
+Console.WriteLine(reversedPangram);
+Console.WriteLine("-----------------------------\n");
+
+
+
+//------------------------------------------------------------------------------------------------
+// Exercise - Complete a challenge to parse a string of orders, sort the orders and tag possible errors
+//------------------------------------------------------------------------------------------------
+string orderStream = "B123,C234,A345,C15,B177,G3003,C235,B179";
+string[] orders = orderStream.Split(',');
+Array.Sort(orders);
+
+foreach (var order in orders)
+    Console.WriteLine(order.Length == 4 ? $"{order}": $"{order} \t- Error");
+
 Console.WriteLine("-----------------------------\n");
