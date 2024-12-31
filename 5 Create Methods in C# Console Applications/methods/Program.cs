@@ -6,68 +6,68 @@ using System;
 int[] times = [800, 1200, 1600, 2000];
 int diff = 0;
 
-Console.WriteLine("Enter current GMT");
-int currentGMT = Convert.ToInt32(Console.ReadLine());
+// Console.WriteLine("Enter current GMT");
+// int currentGMT = Convert.ToInt32(Console.ReadLine());
 
-Console.WriteLine("Current Medicine Schedule:");
+// Console.WriteLine("Current Medicine Schedule:");
 
-/* Format and display medicine times */
-DisplayMediceTimes();
+// /* Format and display medicine times */
+// DisplayMediceTimes();
 
-Console.WriteLine("Enter new GMT");
-int newGMT = Convert.ToInt32(Console.ReadLine());
+// Console.WriteLine("Enter new GMT");
+// int newGMT = Convert.ToInt32(Console.ReadLine());
 
-if (Math.Abs(newGMT) > 12 || Math.Abs(currentGMT) > 12)
-{
-    Console.WriteLine("Invalid GMT");
-}
-else if (newGMT <= 0 && currentGMT <= 0 || newGMT >= 0 && currentGMT >= 0)
-{
-    diff = 100 * (Math.Abs(newGMT) - Math.Abs(currentGMT));
+// if (Math.Abs(newGMT) > 12 || Math.Abs(currentGMT) > 12)
+// {
+//     Console.WriteLine("Invalid GMT");
+// }
+// else if (newGMT <= 0 && currentGMT <= 0 || newGMT >= 0 && currentGMT >= 0)
+// {
+//     diff = 100 * (Math.Abs(newGMT) - Math.Abs(currentGMT));
 
-    /* Adjust the times by adding the difference, keeping the value within 24 hours */
-    AdjustTimes(diff);
-}
-else
-{
-    diff = 100 * (Math.Abs(newGMT) + Math.Abs(currentGMT));
+//     /* Adjust the times by adding the difference, keeping the value within 24 hours */
+//     AdjustTimes(diff);
+// }
+// else
+// {
+//     diff = 100 * (Math.Abs(newGMT) + Math.Abs(currentGMT));
 
-    /* Adjust the times by adding the difference, keeping the value within 24 hours */
-    AdjustTimes(diff);
-}
+//     /* Adjust the times by adding the difference, keeping the value within 24 hours */
+//     AdjustTimes(diff);
+// }
 
-Console.WriteLine("New Medicine Schedule:");
+// Console.WriteLine("New Medicine Schedule:");
 
-/* Format and display medicine times */
-DisplayMediceTimes();
+// /* Format and display medicine times */
+// DisplayMediceTimes();
 
-void DisplayMediceTimes()
-{
-    foreach (int val in times)
-    {
-        string time = val.ToString();
-        int len = time.Length;
+// void DisplayMediceTimes()
+// {
+//     foreach (int val in times)
+//     {
+//         string time = val.ToString();
+//         int len = time.Length;
 
-        if (len >= 3)
-        {
-            time = time.Insert(len - 2, ":");
-        }
-        else if (len == 2)
-        {
-            time = time.Insert(0, "0:");
-        }
-        else
-        {
-            time = time.Insert(0, "0:0");
-        }
+//         if (len >= 3)
+//         {
+//             time = time.Insert(len - 2, ":");
+//         }
+//         else if (len == 2)
+//         {
+//             time = time.Insert(0, "0:");
+//         }
+//         else
+//         {
+//             time = time.Insert(0, "0:0");
+//         }
 
-        Console.Write($"{time} ");
-    }
+//         Console.Write($"{time} ");
+//     }
 
-    Console.WriteLine();
-}
+//     Console.WriteLine();
+// }
 
-void AdjustTimes(int diff)
+// void AdjustTimes(int diff)
 {
     for (int i = 0; i < times.Length; i++)
     {
@@ -138,7 +138,7 @@ Console.WriteLine("-----------------------------\n");
 //------------------------------------------------------------------------------------------------
 // Exercise - Complete the challenge to create a reusable method
 //------------------------------------------------------------------------------------------------
-Random random = new Random();
+Random randomLuck = new Random();
 
 string[] text = { "You have much to", "Today is a day to", "Whatever work you do", "This is an ideal time to" };
 string[] good = { "look forward to.", "try new things!", "is likely to succeed.", "accomplish your dreams!" };
@@ -149,7 +149,7 @@ PredictFortune();
 
 void PredictFortune()
 {
-    int luck = random.Next(100);
+    int luck = randomLuck.Next(100);
     string[] fortune = (luck > 75 ? good : (luck < 25 ? bad : neutral));
 
     Console.WriteLine("A fortune teller whispers the following words:");
@@ -260,3 +260,58 @@ void PrintEmails(string firstName, string lastName, string domain = "contoso.com
     var email = $"{firstName[..2]}{lastName}@{domain}".ToLower();
     Console.WriteLine(email);
 }
+
+Console.WriteLine("-----------------------------\n");
+
+
+
+//------------------------------------------------------------------------------------------------
+// Exercise - Complete the challenge to add methods to make the game playable
+//------------------------------------------------------------------------------------------------
+Random random = new Random();
+
+Console.WriteLine("Would you like to play? (Y/N)");
+if (ShouldPlay()) 
+{
+    PlayGame();
+}
+
+void PlayGame() 
+{
+    var play = true;
+
+    while (play) 
+    {
+        var target = RamdomTarget();
+        var roll = RollDice();
+
+        Console.WriteLine($"Roll a number greater than {target} to win!");
+        Console.WriteLine($"You rolled a {roll}");
+        Console.WriteLine(WinOrLose(target, roll));
+        Console.WriteLine("\nPlay again? (Y/N)");
+
+        play = ShouldPlay();
+    }
+}
+
+bool ShouldPlay() 
+{
+    return Console.ReadLine().ToUpper() == "Y";
+}
+
+string WinOrLose(int target, int roll)
+{
+    return roll > target ? "You win!" : "You lose!";
+}
+
+int RamdomTarget() 
+{
+    return random.Next(1, 6);
+}
+
+int RollDice() 
+{
+    return random.Next(1, 7);
+}
+
+Console.WriteLine("-----------------------------\n");
